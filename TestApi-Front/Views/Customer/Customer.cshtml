@@ -1,0 +1,87 @@
+﻿@model TestApi_Front.Models.Sales.Customer
+
+@{
+    ViewBag.Title = "Get";
+}
+
+<h2>Get</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.name)
+    @Html.HiddenFor(m => m.doctype)
+    @Html.HiddenFor(m => m.docstatus)
+    @Html.HiddenFor(m => m.creation)    
+    @Html.HiddenFor(m => m.owner)
+    @Html.HiddenFor(m => m.default_currency)
+    @Html.HiddenFor(m => m.company)
+    @Html.HiddenFor(m => m.default_price_list)
+    @Html.HiddenFor(m => m.modified)
+    @Html.HiddenFor(m => m.modified_by)
+    
+
+    <div class="form-horizontal">
+        <h4>Customer</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.customer_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customer_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.customer_group, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+                @Html.DropDownListFor(m => m.customer_group,
+                    new SelectList(Model.customerGroups, "name", "name"),
+                    "Customer Group")
+
+                @Html.ValidationMessageFor(model => model.customer_group, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.territory, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">                
+
+                @Html.DropDownListFor(m => m.territory,
+                    new SelectList(Model.territories, "name", "territory_name"),
+                    "Territory")
+
+                @Html.ValidationMessageFor(model => model.territory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.customer_type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.customer_type, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                @Html.DropDownListFor(m => m.customer_type,
+                    new SelectList(Model.customerTypes, "customer_type", "name"),
+                    "Customer Type")
+
+                @Html.ValidationMessageFor(model => model.customer_type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-primary" />
+
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

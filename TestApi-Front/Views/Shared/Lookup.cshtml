@@ -1,0 +1,68 @@
+﻿
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <button type="button" class="btn btn-outline-secondary" id="btnShowModal" data-toggle="modal" data-target="#theModal" data-whatever="mdo">Search</button>
+    </div>
+    <input type="text" id="FieldName" class="form-control" placeholder="Customer" aria-label="Customer" aria-describedby="basic-addon1">
+
+</div>
+
+<div class="modal fade" id="theModal" tabindex="-1" role="dialog" aria-labelledby="theModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div>
+                        
+                        <table id="table_id" class="display">
+                            <thead>
+                                <tr>
+                                    <th>name</th>
+                                    <th>customer_name</th>                                                                       
+                                </tr>
+                            </thead>                           
+                        </table>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').DataTable({
+
+            "ajax": {
+                "url": "/Lookup/Index",
+                "type": "Post",
+                "datatype": "json"
+            },
+
+            "columns": [
+                  { "data": "name", "name": "name", "autoWidth": true },
+                  { "data": "customer_name", "name": "customer_name", "autoWidth": true },
+                  //{
+                  //    "render": function (data, type, full, meta)
+                  //    { return '<a class="btn btn-info" href="/Lookup/Select/' + full.name + '">Select</a>'; }
+                  //},
+            ]
+
+        });
+    });
+
+</script>

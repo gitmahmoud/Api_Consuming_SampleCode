@@ -1,0 +1,99 @@
+﻿@model IEnumerable<TestApi_Front.Models.Sales.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.doctype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.docstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.company)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_group)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.territory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.default_price_list)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.default_currency)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.doctype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.owner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.docstatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.creation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_group)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.territory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.default_price_list)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.default_currency)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+            @Html.ActionLink("Open", "Edit", new {  id=item.name }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.name })
+        </td>
+    </tr>
+}
+
+</table>

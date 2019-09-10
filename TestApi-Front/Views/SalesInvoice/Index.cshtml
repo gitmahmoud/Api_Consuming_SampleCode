@@ -1,0 +1,99 @@
+﻿@model IEnumerable<TestApi_Front.Models.Sales.SalesInvoice>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.docstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.naming_series)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fiscal_year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.posting_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.posting_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.due_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.selling_price_list)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.currency)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            
+            @Html.ActionLink("Open", "Edit", new { id = item.name }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.name })
+
+            @* | @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.docstatus)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.creation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.naming_series)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fiscal_year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.posting_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.posting_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.due_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.selling_price_list)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.currency)
+        </td>
+
+    </tr>
+}
+
+</table>

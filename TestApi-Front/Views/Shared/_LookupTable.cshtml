@@ -1,0 +1,32 @@
+﻿<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>customer_name</th>
+        </tr>
+    </thead>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').DataTable({
+
+            "ajax": {
+                "url": "/Lookup/Index",
+                "type": "Post",
+                "datatype": "json"
+            },
+
+            "columns": [
+                  { "data": "name", "name": "name", "autoWidth": true },
+                  { "data": "customer_name", "name": "customer_name", "autoWidth": true },
+                  //{
+                  //    "render": function (data, type, full, meta)
+                  //    { return '<a class="btn btn-info" href="/Lookup/Select/' + full.name + '">Select</a>'; }
+                  //},
+            ]
+
+        });
+    });
+
+</script>

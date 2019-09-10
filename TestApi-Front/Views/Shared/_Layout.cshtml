@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Test Dafater API</title>
+    @Styles.Render("~/Content/css")
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" ></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+
+                @Html.ActionLink("Test Dafater APi", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Customer
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @Html.ActionLink("Create New Customer", "Add", "Customer", new { id = "" }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Load Customer مبيعات الرحاب", "Edit", "Customer", new { id = "مبيعات الرحاب" }, new { @class = "dropdown-item" })
+                           @Html.ActionLink("Customers", "", "Customer", null, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sales Invoice
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @Html.ActionLink("Add Sales Invoice", "Add", "SalesInvoice", new { id = "" }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("Edit INV00001", "Edit", "SalesInvoice", new { id = "INV00001" }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("List", "Index", "SalesInvoice", new { id = "" }, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
+
+                        @*<li>@Html.ActionLink("About", "About", "Home")</li>
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                </ul>
+            </div>
+        </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer></footer>
+    </div>
+
+
+</body>
+</html>

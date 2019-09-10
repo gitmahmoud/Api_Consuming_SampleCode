@@ -1,0 +1,326 @@
+﻿@model TestApi_Front.Models.Sales.SalesInvoice
+
+@{
+    ViewBag.Title = "SalesInvoice";
+}
+
+<h2>SalesInvoice</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.name)
+    @Html.HiddenFor(m => m.doctype)
+    @Html.HiddenFor(m => m.docstatus)
+    @Html.HiddenFor(m => m.creation)
+    @Html.HiddenFor(m => m.owner)
+    @Html.HiddenFor(m => m.company)
+    @Html.HiddenFor(m => m.modified)
+    @Html.HiddenFor(m => m.modified_by)
+
+    @Html.HiddenFor(m => m.rounded_total_export)
+    @Html.HiddenFor(m => m.cash_bank_account)
+    @Html.HiddenFor(m => m.gross_profit_percent)
+    @Html.HiddenFor(m => m.convert_into_recurring_invoice)
+    @Html.HiddenFor(m => m.tc_name)
+    @Html.HiddenFor(m => m.source)
+    @Html.HiddenFor(m => m.charge)
+    @Html.HiddenFor(m => m.address_display)
+    @Html.HiddenFor(m => m.write_off_cost_center)
+    @Html.HiddenFor(m => m.invoice_period_to_date)
+    @Html.HiddenFor(m => m.write_off_outstanding_amount_automatically)
+    @Html.HiddenFor(m => m.select_print_heading)
+    @Html.HiddenFor(m => m.is_pos)
+    @Html.HiddenFor(m => m.parentfield)
+    @Html.HiddenFor(m => m.net_total_export)
+    @Html.HiddenFor(m => m.write_off_amount)
+    @Html.HiddenFor(m => m.pos_reference)
+    @Html.HiddenFor(m => m.mode_of_payment)
+    @Html.HiddenFor(m => m.price_list_currency)
+    @Html.HiddenFor(m => m.contact_display)
+    @Html.HiddenFor(m => m.next_date)
+    @Html.HiddenFor(m => m.terms)
+    @Html.HiddenFor(m => m.parent)
+    @Html.HiddenFor(m => m.additional_discount_amount)
+    @Html.HiddenFor(m => m.other_charges_total_export)
+    @Html.HiddenFor(m => m.aging_date)
+    @Html.HiddenFor(m => m.customer_address)
+    @Html.HiddenFor(m => m.total_commission)
+    @Html.HiddenFor(m => m.contact_mobile)
+    @Html.HiddenFor(m => m._user_tags)
+    @Html.HiddenFor(m => m.c_form_applicable)
+    @Html.HiddenFor(m => m.idx)
+    @Html.HiddenFor(m => m.rounded_total)
+    @Html.HiddenFor(m => m.customer_group)
+    @Html.HiddenFor(m => m.gross_profit)
+    @Html.HiddenFor(m => m.repeat_on_day_of_month)
+    @Html.HiddenFor(m => m.contact_person)
+    @Html.HiddenFor(m => m.in_words)
+    @Html.HiddenFor(m => m.additional_discount_percentage)
+    @Html.HiddenFor(m => m.campaign)
+    @Html.HiddenFor(m => m.conversion_rate)
+    @Html.HiddenFor(m => m.against_income_account)
+    @Html.HiddenFor(m => m.total_advance)
+    @Html.HiddenFor(m => m.customer_name)
+    @Html.HiddenFor(m => m.commission_rate)
+    @Html.HiddenFor(m => m.update_stock)
+    @Html.HiddenFor(m => m.account_for_change_amount)
+    @Html.HiddenFor(m => m.territory)
+    @Html.HiddenFor(m => m.sales_partner)
+    @Html.HiddenFor(m => m.project_name)
+    @Html.HiddenFor(m => m.end_date)
+    @Html.HiddenFor(m => m.contact_email)
+    @Html.HiddenFor(m => m.grand_total)
+    @Html.HiddenFor(m => m.notification_email_address)
+    @Html.HiddenFor(m => m.is_opening)
+    @Html.HiddenFor(m => m.debit_to)
+    @Html.HiddenFor(m => m.other_charges_total)
+    @Html.HiddenFor(m => m.letter_head)
+    @Html.HiddenFor(m => m.recurring_id)
+    @Html.HiddenFor(m => m.shipping_rule)
+    @Html.HiddenFor(m => m.apply_additional_discount_on)
+    @Html.HiddenFor(m => m.paid_amount)
+    @Html.HiddenFor(m => m.amended_from)
+    @Html.HiddenFor(m => m.recurring_type)
+    @Html.HiddenFor(m => m.grand_total_export)
+    @Html.HiddenFor(m => m.write_off_account)
+    @Html.HiddenFor(m => m.outstanding_amount)
+    @Html.HiddenFor(m => m.change_amount)
+    @Html.HiddenFor(m => m.in_words_export)
+    @Html.HiddenFor(m => m.invoice_period_from_date)
+    @Html.HiddenFor(m => m.sync_submit_error)
+    @Html.HiddenFor(m => m.c_form_no)
+    @Html.HiddenFor(m => m.plc_conversion_rate)
+    @Html.HiddenFor(m => m.parenttype)
+    @Html.HiddenFor(m => m.net_total)
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-row">
+            <div class="col">
+
+                @Html.LabelFor(model => model.naming_series, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @Html.EditorFor(model => model.naming_series, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                    @Html.ValidationMessageFor(model => model.naming_series, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="col">
+
+                @Html.LabelFor(model => model.fiscal_year, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @*@Html.EditorFor(model => model.fiscal_year, new { htmlAttributes = new { @class = "form-control form-control-sm" } })*@
+                    @Html.DropDownListFor(m => m.fiscal_year, new SelectList(Model.FiscalYears, "name", "name"), "Fiscal Year", new { @class = "form-control-sm btn btn-secondary dropdown-toggle" })
+
+                    @Html.ValidationMessageFor(model => model.fiscal_year, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                @Html.LabelFor(model => model.posting_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @Html.EditorFor(model => model.posting_date, new { htmlAttributes = new { @class = "form-control form-control-sm  date-picker" } })
+                    @Html.ValidationMessageFor(model => model.posting_date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col">
+                @Html.LabelFor(model => model.posting_time, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @Html.EditorFor(model => model.posting_time, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                    @Html.ValidationMessageFor(model => model.posting_time, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="col">
+                @Html.LabelFor(model => model.due_date, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @Html.EditorFor(model => model.due_date, new { htmlAttributes = new { @class = "form-control form-control-sm date-picker" } })
+                    @Html.ValidationMessageFor(model => model.due_date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col">
+                @Html.LabelFor(model => model.customer, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @*@Html.EditorFor(model => model.customer, new { htmlAttributes = new { @class = "form-control form-control-sm" } })*@
+                    @Html.DropDownListFor(m => m.customer, new SelectList(Model.customers, "name", "name"), "Customer", new { @class = "form-control-sm btn btn-secondary dropdown-toggle" })
+
+
+                    @Html.ValidationMessageFor(model => model.customer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                @Html.LabelFor(model => model.selling_price_list, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @*@Html.EditorFor(model => model.selling_price_list, new { htmlAttributes = new { @class = "form-control form-control-sm" } })*@
+                    @Html.DropDownListFor(m => m.selling_price_list, new SelectList(Model.priceLists, "name", "name"), "Price List", new { @class = "form-control-sm btn btn-secondary dropdown-toggle" })
+                    @Html.ValidationMessageFor(model => model.selling_price_list, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col">
+                @Html.LabelFor(model => model.currency, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @Html.EditorFor(model => model.currency, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                    @Html.ValidationMessageFor(model => model.currency, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                @Html.LabelFor(model => model.remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-05">
+                    @Html.EditorFor(model => model.remarks, new { htmlAttributes = new { @class = "form-control form-control-sm" } })
+                    @Html.ValidationMessageFor(model => model.remarks, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                <div><b>Items</b><br /></div>
+                <table class="table table-bordered table-responsive table-hover">
+                    <tr>
+                        <th>Item Code </th>
+                        <th>Item Name </th>
+                        <th>Qty </th>
+                        <th>Uom</th>
+                        <th>Amount</th>
+                        <th>Net</th>
+
+                    </tr>
+                    @for (int x = 0; x < Model.entries.Count; x++)
+                    {
+                        <tr>
+
+                            <td>@Html.TextBoxFor(m => m.entries[x].item_code)</td>
+                            <td>@Html.TextBoxFor(m => m.entries[x].item_name)</td>
+                            <td>@Html.TextBoxFor(m => m.entries[x].qty)</td>
+                            <td>@Html.TextBoxFor(m => m.entries[x].stock_uom)</td>
+                            <td>@Html.TextBoxFor(m => m.entries[x].amount)</td>
+                            <td>@Html.TextBoxFor(m => m.entries[x].net_amount_export)</td>
+                            <td>@Html.HiddenFor(m => m.entries[x].parent)
+                                @Html.HiddenFor(m => m.entries[x].parentfield)
+                                @Html.HiddenFor(m => m.entries[x].parenttype)
+                                @Html.HiddenFor(m => m.entries[x].description)
+                                @Html.HiddenFor(m => m.entries[x].barcode)
+                                @Html.HiddenFor(m => m.entries[x].adj_rate)
+                                @Html.HiddenFor(m => m.entries[x].ref_rate)
+                                @Html.HiddenFor(m => m.entries[x].serial_no)
+                                @Html.HiddenFor(m => m.entries[x].item_tax_rate)
+                                @Html.HiddenFor(m => m.entries[x].delivery_note)
+                                @Html.HiddenFor(m => m.entries[x].cost_center)
+                                @Html.HiddenFor(m => m.entries[x].so_detail)
+                                @Html.HiddenFor(m => m.entries[x].actual_qty)
+                                @Html.HiddenFor(m => m.entries[x].page_break)
+                                @Html.HiddenFor(m => m.entries[x].income_account)
+                                @Html.HiddenFor(m => m.entries[x].sales_order)
+                                @Html.HiddenFor(m => m.entries[x].return_note)
+                                @Html.HiddenFor(m => m.entries[x].warehouse)
+                                @Html.HiddenFor(m => m.entries[x].basic_rate)
+                                @Html.HiddenFor(m => m.entries[x].brand)
+                                @Html.HiddenFor(m => m.entries[x].expense_account)
+                                @Html.HiddenFor(m => m.entries[x].buying_amount)
+                                @Html.HiddenFor(m => m.entries[x].time_log_batch)
+                                @Html.HiddenFor(m => m.entries[x].delivered_qty)
+                                @Html.HiddenFor(m => m.entries[x].export_rate)
+                                @Html.HiddenFor(m => m.entries[x].idx)
+                                @Html.HiddenFor(m => m.entries[x].item_group)
+                                @Html.HiddenFor(m => m.entries[x].export_amount)
+                                @Html.HiddenFor(m => m.entries[x].customer_item_code)
+                                @Html.HiddenFor(m => m.entries[x].batch_no)
+                                @Html.HiddenFor(m => m.entries[x].net_amount)
+                                @Html.HiddenFor(m => m.entries[x].base_ref_rate)
+                                @Html.HiddenFor(m => m.entries[x].modified)
+                                @Html.HiddenFor(m => m.entries[x].modified_by)
+                                @Html.HiddenFor(m => m.entries[x].creation)
+                                @Html.HiddenFor(m => m.entries[x].name)
+                                @Html.HiddenFor(m => m.entries[x].owner)
+                            
+                            </td>                                     
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col">
+                <div><b>Other Charges</b><br /></div>
+                <table class="table table-bordered table-responsive table-hover">
+                    <tr>
+                        <th>charge_type </th>
+                        <th>total </th>
+                        <th>description </th>
+                        <th>tax_amount</th>
+                        <th>cost_center</th>
+                        <th>rate</th>
+
+                    </tr>
+                    @for (int x = 0; x < Model.other_charges.Count; x++)
+                    {
+                        <tr>
+
+                            <td>@Html.TextBoxFor(m => m.other_charges[x].charge_type)</td>
+                            <td>@Html.TextBoxFor(m => m.other_charges[x].total)</td>
+                            <td>@Html.TextBoxFor(m => m.other_charges[x].description)</td>
+                            <td>@Html.TextBoxFor(m => m.other_charges[x].tax_amount)</td>
+                            <td>@Html.TextBoxFor(m => m.other_charges[x].cost_center)</td>
+                            <td>@Html.TextBoxFor(m => m.other_charges[x].rate)</td>
+                            <td>
+                            @Html.HiddenFor(m => m.other_charges[x].item_wise_tax_detail)
+                            @Html.HiddenFor(m => m.other_charges[x].parentfield)
+                            @Html.HiddenFor(m => m.other_charges[x].parenttype)
+                            @Html.HiddenFor(m => m.other_charges[x].description)
+                            @Html.HiddenFor(m => m.other_charges[x].modified_by)
+                            @Html.HiddenFor(m => m.other_charges[x].name)
+                            @Html.HiddenFor(m => m.other_charges[x].parent)
+                            @Html.HiddenFor(m => m.other_charges[x].included_in_print_rate)
+                            @Html.HiddenFor(m => m.other_charges[x].creation)
+                            @Html.HiddenFor(m => m.other_charges[x].doctype)
+                            @Html.HiddenFor(m => m.other_charges[x].modified)
+                            @Html.HiddenFor(m => m.other_charges[x].owner)
+                            @Html.HiddenFor(m => m.other_charges[x].docstatus)
+                            @Html.HiddenFor(m => m.other_charges[x].row_id)
+                            @Html.HiddenFor(m => m.other_charges[x].account_head)
+                            @Html.HiddenFor(m => m.other_charges[x].idx)
+                        </td>
+                    </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-05">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('.date-picker').datepicker();
+    })
+</script>
